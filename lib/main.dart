@@ -11,6 +11,16 @@ import 'app/routes/routes.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  // Validar que las variables de entorno fueron inyectadas.
+  // Si están vacías la app se ejecutó sin --dart-define-from-file=.env.json
+  assert(
+    SupabaseConfig.url.isNotEmpty,
+    '\n\n'
+    '❌  SUPABASE_URL está vacío.\n'
+    '   Ejecuta con: flutter run --dart-define-from-file=.env.json\n'
+    '   O usa F5 en VS Code con la configuración "appmovilesdev (debug)".\n',
+  );
+
   // Inicializar Supabase
   await Supabase.initialize(
     url: SupabaseConfig.url,

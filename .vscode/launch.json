@@ -6,14 +6,14 @@
       "request": "launch",
       "type": "dart",
       "flutterMode": "debug",
-      "dartDefineFromFile": "${workspaceFolder}/.env.json"
+      "toolArgs": ["--dart-define-from-file=${workspaceFolder}/.env.json"]
     },
     {
       "name": "appmovilesdev (release)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "release",
-      "dartDefineFromFile": "${workspaceFolder}/.env.json"
+      "toolArgs": ["--dart-define-from-file=${workspaceFolder}/.env.json"]
     }
   ]
 }
