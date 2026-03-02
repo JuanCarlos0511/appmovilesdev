@@ -9,11 +9,12 @@ class LoginController extends GetxController {
   final AuthService _authService = Get.find<AuthService>();
 
   final RxBool isLoading = false.obs;
+  final RxBool isGoogleLoading = false.obs;
 
   /// true = pantalla de Login | false = pantalla de Registro
   final RxBool isLoginMode = true.obs;
 
-  // ---------- Acciones ----------
+  // ---------- Email / Password ----------
 
   Future<void> submit(String email, String password) async {
     if (email.trim().isEmpty || password.isEmpty) {
@@ -47,6 +48,33 @@ class LoginController extends GetxController {
       );
     } finally {
       isLoading.value = false;
+    }
+  }
+
+  // ---------- Google ----------
+
+  Future<void> signInWithGoogle() async {
+    isGoogleLoading.value = true;
+    try {
+      await _authService.signInWithGoogle();
+      Get.offAllNamed(Routes.mascota);
+    } on AuthException catch (e) {
+      Get.snackbar(
+        'Error de Google',
+        e.message,
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    } catch (e) {
+      final msg = e.toString();
+      if (!msg.contains('cancelado')) {
+        Get.snackbar(
+          'Error',
+          'No se pudo iniciar sesión con Google.',
+          snackPosition: SnackPosition.BOTTOM,
+        );
+      }
+    } finally {
+      isGoogleLoading.value = false;
     }
   }
 

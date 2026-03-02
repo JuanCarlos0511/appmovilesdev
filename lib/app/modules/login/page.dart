@@ -92,6 +92,37 @@ class LoginPage extends GetView<LoginController> {
                             : '¿Ya tienes cuenta? Inicia sesión',
                       ),
                     )),
+
+                const SizedBox(height: 8),
+                const Row(
+                  children: [
+                    Expanded(child: Divider()),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Text('o continuar con'),
+                    ),
+                    Expanded(child: Divider()),
+                  ],
+                ),
+                const SizedBox(height: 12),
+
+                // ---------- Botón de Google ----------
+                Obx(() => SizedBox(
+                      width: double.infinity,
+                      child: OutlinedButton.icon(
+                        onPressed: controller.isGoogleLoading.value
+                            ? null
+                            : controller.signInWithGoogle,
+                        icon: controller.isGoogleLoading.value
+                            ? const SizedBox(
+                                height: 18,
+                                width: 18,
+                                child: CircularProgressIndicator(strokeWidth: 2),
+                              )
+                            : const Icon(Icons.g_mobiledata_rounded, size: 26),
+                        label: const Text('Continuar con Google'),
+                      ),
+                    )),
               ],
             ),
           ),

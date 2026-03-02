@@ -15,4 +15,9 @@ class SupabaseConfig {
 
   /// anon / public key  →  Settings → API → Project API keys
   static const String anonKey = String.fromEnvironment('SUPABASE_ANON_KEY');
+
+  /// Web Client ID de Google Cloud Console
+  /// (el de tipo "Web application", NO el de Android)
+  static const String googleWebClientId =
+      String.fromEnvironment('GOOGLE_WEB_CLIENT_ID');
 }
