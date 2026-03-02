@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1017899744297",
+    "project_id": "openclawagent-487621",
+    "storage_bucket": "openclawagent-487621.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1017899744297:android:672c1eed3bad9ab1ca3038",
+        "android_client_info": {
+          "package_name": "com.example.appmovilesdev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1017899744297-0vu0hm35fq7pci09esr0782icl0ttdrb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDh1vIc-WCeuPumB2QU91L-27D2Uu6tsVQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1017899744297-0vu0hm35fq7pci09esr0782icl0ttdrb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

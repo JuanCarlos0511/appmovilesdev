@@ -68,9 +68,10 @@ class LoginController extends GetxController {
       final msg = e.toString();
       if (!msg.contains('cancelado')) {
         Get.snackbar(
-          'Error',
-          'No se pudo iniciar sesión con Google.',
+          'Error de Google',
+          msg,
           snackPosition: SnackPosition.BOTTOM,
+          duration: const Duration(seconds: 6),
         );
       }
     } finally {
