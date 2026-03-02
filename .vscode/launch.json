@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "appmovilesdev (debug)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "dartDefineFromFile": "${workspaceFolder}/.env.json"
+    },
+    {
+      "name": "appmovilesdev (release)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release",
+      "dartDefineFromFile": "${workspaceFolder}/.env.json"
+    }
+  ]
+}

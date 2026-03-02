@@ -9,7 +9,16 @@ class MascotaPage extends GetView<MascotaController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Mascotas')),
+      appBar: AppBar(
+        title: const Text('Mis Mascotas'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            tooltip: 'Cerrar sesión',
+            onPressed: controller.signOut,
+          ),
+        ],
+      ),
       body: Obx(() {
         if (controller.isLoading.value) {
           return const Center(child: CircularProgressIndicator());
@@ -117,10 +126,12 @@ class MascotaPage extends GetView<MascotaController> {
           ),
           TextButton(
             onPressed: () {
-              mascota.nombre = nameController.text;
-              mascota.especie = speciesController.text;
-              mascota.edad = int.tryParse(ageController.text) ?? 0;
-              controller.updateMascota(mascota);
+              final updated = mascota.copyWith(
+                nombre: nameController.text.trim(),
+                especie: speciesController.text.trim(),
+                edad: int.tryParse(ageController.text) ?? mascota.edad,
+              );
+              controller.updateMascota(updated);
               Get.back();
             },
             child: const Text('Actualizar'),
